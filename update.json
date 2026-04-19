@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "download_url": "",
+  "download_url": "https://raw.githubusercontent.com/rrrrrrrrrx/p/main/prophet.exe",
   "sha256": "",
-  "notes": "Replace download_url with your hosted loader URL. Bump version when you ship."
+  "notes": "Binary served from repo root on main."
 }
