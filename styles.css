@@ -250,6 +250,11 @@ nav.scrolled {
 .btn-white:hover::before { left: 100%; }
 .btn-white:hover { transform: translateY(-2px); }
 
+a.btn-white,
+a.btn-white:visited {
+  color: #0a0a0a;
+}
+
 .btn-outline {
   background: transparent;
   color: var(--text);
@@ -650,6 +655,11 @@ nav.scrolled {
 .plan-cta:hover::before { left: 100%; }
 .plan-cta:hover { background: var(--accent); transform: translateY(-1px); }
 
+a.plan-cta,
+a.plan-cta:visited {
+  color: #0a0a0a;
+}
+
 .plan-note {
   text-align: center;
   margin-top: 20px;
@@ -955,8 +965,24 @@ footer {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   word-break: break-all;
-  color: var(--accent);
+  color: var(--text-dim);
   line-height: 1.5;
+}
+
+/* Primary download button on dark card — no browser “link red” / visited purple */
+.dl-card .plan-cta,
+.dl-card .plan-cta:visited,
+.dl-card .plan-cta:hover {
+  color: #0a0a0a !important;
+  background: #fff !important;
+}
+
+.section-download .download-cta-wrap {
+  text-align: center;
+  margin-top: 8px;
+}
+.section-download .section-sub {
+  margin-bottom: 28px;
 }
 .dl-page-footer {
   position: relative;

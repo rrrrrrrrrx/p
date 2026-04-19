@@ -93,27 +93,12 @@
 
   <div class="section-divider"></div>
 
-  <!-- ── DOWNLOAD (free) ── -->
-  <section class="section" id="download">
+  <!-- ── DOWNLOAD ── -->
+  <section class="section section-download" id="download">
     <span class="eyebrow reveal">Download</span>
-    <h2 class="section-heading reveal">Free for<br>everyone.</h2>
-    <p class="section-sub reveal">No checkout. Grab the latest loader from the download page. Point your updater at the same JSON file you host here so all clients stay in sync.</p>
-
-    <div class="pricing-wrap">
-      <div class="plan-single reveal">
-        <span class="plan-tier">Latest release</span>
-        <div class="plan-price plan-price--free">$0<span class="period"> free</span></div>
-        <p class="plan-tagline">Full build, automatic updates via the loader when you wire it to this site&rsquo;s <code class="inline-code">update.json</code>.</p>
-        <ul class="plan-features">
-          <li>No payment on this site</li>
-          <li>Loader can read <code class="inline-code">update.json</code> for version + URL</li>
-          <li>Update the manifest on your host when you ship a new build</li>
-          <li>Optional <code class="inline-code">sha256</code> in the JSON</li>
-        </ul>
-        <a href="download.html" class="plan-cta">Go to download page</a>
-        <p class="plan-note">Host <code class="inline-code">update.json</code> beside these files &nbsp;·&nbsp; Point your loader at its public URL</p>
-      </div>
-    </div>
+    <h2 class="section-heading reveal">Build &amp; updates</h2>
+    <p class="section-sub reveal">Version and download link live on a single page.</p>
+    <p class="reveal download-cta-wrap"><a href="download.html" class="btn-white">Open download page</a></p>
   </section>
 
   <div class="section-divider"></div>
@@ -142,7 +127,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-body">
-            <p class="faq-a">New builds are announced by changing <code class="inline-code">update.json</code> (version + <code class="inline-code">download_url</code>). If your loader checks that file, it can fetch updates when you publish them. Game updates can break tools until someone ships a fix.</p>
+            <p class="faq-a">You publish new binaries wherever you host files, then edit the site&rsquo;s <code class="inline-code">update.json</code> (bump <code class="inline-code">version</code>, set <code class="inline-code">download_url</code>, optional <code class="inline-code">sha256</code>). The loader reads that JSON from the URL shown on the download page. Game updates can break tools until a new build ships.</p>
           </div>
         </div>
 
@@ -152,43 +137,11 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-body">
-            <p class="faq-a">Distribution is handled from the download page and <code class="inline-code">update.json</code>. There is no purchase flow on this site.</p>
-          </div>
-        </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-toggle">
-            <span class="faq-q">How does the loader auto-update?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
-            <p class="faq-a">Configure your loader to fetch the hosted <code class="inline-code">update.json</code> (see the download page for the exact URL). When you bump <code class="inline-code">version</code> and set <code class="inline-code">download_url</code>, clients that compare versions can pull the new build automatically.</p>
-          </div>
-        </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-toggle">
-            <span class="faq-q">Where do I upload new builds?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
-            <p class="faq-a">Upload your binary or archive anywhere you control (CDN, GitHub Releases, etc.), then update <code class="inline-code">download_url</code> and optionally <code class="inline-code">sha256</code> in <code class="inline-code">update.json</code> on this site.</p>
+            <p class="faq-a">No payment flow on this site.</p>
           </div>
         </div>
 
       </div>
-    </div>
-  </div>
-
-  <!-- ── FINAL CTA ── -->
-  <div class="cta-section">
-    <span class="eyebrow reveal" style="display: block; margin-bottom: 20px;">Download</span>
-    <h2 class="section-heading reveal" style="margin-bottom: 24px;">Latest build</h2>
-    <p class="reveal" style="font-size: 16px; color: var(--text-dim); margin-bottom: 56px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.75; font-weight: 400;">
-      Get the loader from the download page. Point your updater at <code class="inline-code">update.json</code> if you want automatic version checks.
-    </p>
-    <div class="hero-buttons reveal">
-      <a href="download.html" class="btn-white">Download</a>
     </div>
   </div>
 

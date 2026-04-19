@@ -24,7 +24,6 @@
   </nav>
 
   <main class="dl-page-main">
-    <p class="dl-page-kicker reveal">Release</p>
     <h1 class="dl-page-title reveal">Download</h1>
 
     <div class="dl-card dl-card--simple reveal">
@@ -32,12 +31,12 @@
         <span class="dl-label">Version</span>
         <span class="dl-value" id="dl-version">—</span>
       </div>
-      <p class="dl-line" id="dl-status">Loading…</p>
+      <p class="dl-line" id="dl-status"></p>
       <div class="dl-actions dl-actions--single">
         <a id="dl-button" class="plan-cta" href="#">Download</a>
       </div>
       <div class="dl-manifest">
-        <span class="dl-manifest-label">Manifest (loader uses this)</span>
+        <span class="dl-manifest-label">update.json</span>
         <code class="dl-manifest-url" id="dl-manifest-url"></code>
       </div>
     </div>
@@ -57,6 +56,7 @@
       var elManifest = document.getElementById('dl-manifest-url');
       var base = window.location.href.replace(/[^/]*$/, '');
       elManifest.textContent = base + 'update.json';
+      elStatus.textContent = 'Loading version…';
 
       fetch('update.json?t=' + Date.now(), { cache: 'no-store' })
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
@@ -65,16 +65,18 @@
           var url = (j.download_url || '').trim();
           if (url) {
             elBtn.href = url;
-            elStatus.textContent = j.sha256 ? 'SHA-256: ' + j.sha256 : 'Ready.';
+            elStatus.textContent = j.sha256
+              ? 'SHA-256: ' + j.sha256
+              : ' ';
           } else {
             elBtn.href = '#';
-            elStatus.textContent = 'Set download_url in update.json.';
+            elStatus.textContent = 'Add download_url in update.json.';
             elBtn.addEventListener('click', function (e) { e.preventDefault(); });
           }
         })
         .catch(function () {
           elVer.textContent = '—';
-          elStatus.textContent = 'Host this site over http(s) so update.json can load.';
+          elStatus.textContent = 'Could not load update.json (use http/https hosting).';
           elBtn.href = '#';
           elBtn.addEventListener('click', function (e) { e.preventDefault(); });
         });
