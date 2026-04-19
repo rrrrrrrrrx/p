@@ -1,0 +1,400 @@
+{% comment %}
+  Sellhub — paste ENTIRE file into headTagContent.liquid
+  Full storefront polish: dark monochrome, refined type, forms, cards, tables, chrome.
+{% endcomment %}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+
+<style id="prophet-store-theme">
+  :root {
+    --bg-deep: #050506;
+    --bg: #0c0c0e;
+    --surface: #121214;
+    --surface-2: #18181b;
+    --surface-raised: #1c1c1f;
+    --border: rgba(255, 255, 255, 0.07);
+    --border-hover: rgba(255, 255, 255, 0.12);
+    --ring: rgba(255, 255, 255, 0.22);
+    --text: #fafafa;
+    --text-secondary: #b4b4b8;
+    --text-tertiary: #8e8e93;
+    --accent: #ffffff;
+    --accent-ink: #0a0a0b;
+    --danger: #f87171;
+    --success: #86efac;
+    --radius-lg: 12px;
+    --radius: 8px;
+    --radius-sm: 6px;
+    --shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 12px 40px rgba(0, 0, 0, 0.45);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --font: "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --tracking-tight: -0.03em;
+    --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font) !important;
+    font-size: 15px;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+    background-color: var(--bg-deep) !important;
+    background-image:
+      radial-gradient(ellipse 100% 80% at 50% -30%, rgba(255, 255, 255, 0.07), transparent 55%),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(255, 255, 255, 0.03), transparent 45%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%) !important;
+    background-attachment: fixed !important;
+    color: var(--text) !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--text);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  main,
+  [role="main"],
+  article,
+  section {
+    color: inherit;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font) !important;
+    color: var(--text) !important;
+    font-weight: 600;
+    letter-spacing: var(--tracking-tight);
+    line-height: 1.2;
+    margin: 0 0 0.5em;
+  }
+
+  h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); }
+  h2 { font-size: clamp(1.35rem, 3vw, 1.65rem); }
+  h3 { font-size: 1.15rem; }
+
+  p {
+    margin: 0 0 1em;
+    color: var(--text-secondary) !important;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  ul, ol {
+    color: var(--text-secondary);
+    padding-left: 1.25rem;
+  }
+
+  li {
+    margin: 0.35em 0;
+  }
+
+  small {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary) !important;
+  }
+
+  strong, b {
+    color: var(--text) !important;
+    font-weight: 600;
+  }
+
+  blockquote {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    border-left: 3px solid var(--border-hover);
+    color: var(--text-secondary);
+    background: var(--surface);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+
+  a {
+    color: var(--text) !important;
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-tertiary);
+    transition: color 0.2s var(--ease), border-color 0.2s var(--ease), opacity 0.2s var(--ease);
+  }
+
+  a:hover {
+    color: var(--accent) !important;
+    border-bottom-color: var(--accent);
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 1.5rem 0;
+  }
+
+  img, video {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+  }
+
+  /* ----- Forms ----- */
+  label {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary) !important;
+    letter-spacing: 0.02em;
+    text-transform: none;
+  }
+
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  select,
+  textarea {
+    width: 100%;
+    max-width: 100%;
+    font-family: var(--font) !important;
+    font-size: 0.9375rem !important;
+    padding: 0.65rem 0.85rem !important;
+    background: var(--surface) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    box-shadow: none !important;
+  }
+
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-tertiary) !important;
+    opacity: 1;
+  }
+
+  input:hover:not(:focus),
+  select:hover:not(:focus),
+  textarea:hover:not(:focus) {
+    border-color: var(--border-hover) !important;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--ring) !important;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06) !important;
+    outline: none !important;
+  }
+
+  select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%238e8e93' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.65rem center;
+    padding-right: 2.25rem !important;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 1.05rem;
+    height: 1.05rem;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+
+  /* ----- Buttons ----- */
+  button,
+  [role="button"],
+  input[type="submit"],
+  input[type="button"] {
+    font-family: var(--font) !important;
+    font-size: 0.9375rem !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em;
+    padding: 0.65rem 1.15rem !important;
+    border-radius: var(--radius-sm) !important;
+    cursor: pointer;
+    transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.15s var(--ease), box-shadow 0.2s var(--ease);
+  }
+
+  button:active:not(:disabled),
+  [role="button"]:active,
+  input[type="submit"]:active,
+  input[type="button"]:active {
+    transform: translateY(1px);
+  }
+
+  button:disabled,
+  input:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  /* Primary */
+  button:not([class*="ghost"]):not([class*="link"]):not([class*="outline"]):not([class*="secondary"]),
+  input[type="submit"]:not([class*="ghost"]) {
+    background: var(--accent) !important;
+    color: var(--accent-ink) !important;
+    border: 1px solid var(--accent) !important;
+    box-shadow: var(--shadow-sm);
+  }
+
+  button:not([class*="ghost"]):not([class*="link"]):not([class*="outline"]):not([class*="secondary"]):hover,
+  input[type="submit"]:hover {
+    filter: brightness(0.92);
+  }
+
+  /* Outline / secondary feel */
+  button[class*="outline"],
+  button[class*="secondary"],
+  button[class*="ghost"],
+  a[role="button"] {
+    background: transparent !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border-hover) !important;
+    box-shadow: none !important;
+  }
+
+  button[class*="outline"]:hover,
+  button[class*="secondary"]:hover,
+  button[class*="ghost"]:hover {
+    background: var(--surface-2) !important;
+    border-color: var(--border-hover) !important;
+  }
+
+  /* ----- Surfaces: cards, panels, modals ----- */
+  [class*="card"],
+  [class*="Card"],
+  [class*="panel"],
+  [class*="Panel"],
+  [class*="modal"],
+  [class*="Modal"],
+  [class*="box"],
+  [class*="Box"] {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow) !important;
+    transition: border-color 0.2s var(--ease), box-shadow 0.25s var(--ease);
+  }
+
+  [class*="card"]:hover,
+  [class*="Card"]:hover {
+    border-color: var(--border-hover) !important;
+  }
+
+  /* ----- Pricing / product vibes ----- */
+  [class*="price"],
+  [class*="Price"],
+  [class*="amount"] {
+    font-weight: 700 !important;
+    letter-spacing: var(--tracking-tight);
+    color: var(--text) !important;
+  }
+
+  /* ----- Tables ----- */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.875rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--surface) !important;
+  }
+
+  th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  th {
+    background: var(--surface-2) !important;
+    color: var(--text) !important;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  td {
+    color: var(--text-secondary) !important;
+  }
+
+  /* ----- Header / footer chrome ----- */
+  header,
+  footer,
+  nav,
+  [role="banner"],
+  [role="contentinfo"] {
+    border-color: var(--border) !important;
+  }
+
+  header,
+  [role="banner"] {
+    background: rgba(12, 12, 14, 0.75) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border) !important;
+  }
+
+  footer,
+  [role="contentinfo"] {
+    background: var(--bg-deep) !important;
+    border-top: 1px solid var(--border) !important;
+    color: var(--text-tertiary) !important;
+  }
+
+  /* ----- Scrollbars (Chromium / WebKit) ----- */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--surface-2) var(--bg-deep);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bg-deep);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--surface-2);
+    border-radius: 999px;
+    border: 2px solid var(--bg-deep);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--surface-raised);
+  }
+</style>
