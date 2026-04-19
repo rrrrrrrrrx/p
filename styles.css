@@ -874,6 +874,105 @@ footer {
   color: var(--text-dim);
 }
 
+/* —— Clean download page —— */
+.dl-page-main {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 120px 24px 80px;
+  min-height: 70vh;
+}
+.dl-page-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin: 0 0 12px;
+}
+.dl-page-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(36px, 8vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--white);
+  margin: 0 0 36px;
+  line-height: 1;
+}
+.dl-card--simple {
+  padding: 32px 28px;
+}
+.dl-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.dl-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.dl-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+.dl-line {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+.dl-actions--single {
+  margin-bottom: 28px;
+}
+.dl-actions--single .plan-cta {
+  width: 100%;
+  text-align: center;
+}
+.dl-manifest {
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.dl-manifest-label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 10px;
+}
+.dl-manifest-url {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  word-break: break-all;
+  color: var(--accent);
+  line-height: 1.5;
+}
+.dl-page-footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--border);
+  padding: 28px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 520px;
+  margin: 0 auto;
+  background: var(--surface);
+}
+
 /* ============================================================
    KEYFRAMES
    ============================================================ */
