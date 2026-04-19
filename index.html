@@ -13,11 +13,6 @@
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- ============================================================
-       STRIPE — Uncomment when ready
-       ============================================================
-  <script src="https://js.stripe.com/v3/"></script>
-  -->
 </head>
 <body>
 
@@ -25,13 +20,12 @@
 
   <!-- ── NAV ── -->
   <nav id="main-nav">
-    <a href="#" class="logo">Prophet<span>.</span></a>
+    <a href="index.html" class="logo">Prophet<span>.</span></a>
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="download.html">Download</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#pricing" class="nav-cta">Get Access</a></li>
+      <li><a href="download.html" class="nav-cta">Download</a></li>
     </ul>
   </nav>
 
@@ -39,19 +33,18 @@
   <div class="hero">
     <div class="hero-eyebrow">
       <span class="pulse-dot"></span>
-      99.9% Undetected &mdash; Updated Daily
+      Windows · External
     </div>
     <h1 class="hero-title">
-      <span class="hollow">See what</span>
-      <span class="solid">others can't.</span>
+      <span class="hollow">Prophet</span>
+      <span class="solid">external</span>
     </h1>
     <p class="hero-sub">
-      Prophet is the most advanced Roblox external available. Kernel-level bypass,
-      adaptive AI masking, and 100+ precision-engineered modules — always one step ahead.
+      A separate-process tool for Roblox: memory read/write, overlay UI, and modules for combat, visuals, and misc.
+      Not kernel-mode; not undetectable by definition—use at your own risk.
     </p>
     <div class="hero-buttons">
-      <a href="#pricing" class="btn-white">Get Prophet</a>
-      <a href="#" class="btn-outline">Join Discord</a>
+      <a href="download.html" class="btn-white">Download</a>
     </div>
     <div class="scroll-indicator">
       <span>Scroll</span>
@@ -59,80 +52,40 @@
     </div>
   </div>
 
-  <!-- ── STATS BAR ── -->
-  <div class="stats-wrap">
-    <div class="stats-bar">
-      <div class="stat-item reveal">
-        <span class="stat-num" data-target="12000">0</span>
-        <span class="stat-label">Active Users</span>
-      </div>
-      <div class="stat-item reveal" style="transition-delay: .1s">
-        <span class="stat-num">99.9%</span>
-        <span class="stat-label">Undetected Rate</span>
-      </div>
-      <div class="stat-item reveal" style="transition-delay: .2s">
-        <span class="stat-num">100+</span>
-        <span class="stat-label">Modules</span>
-      </div>
-      <div class="stat-item reveal" style="transition-delay: .3s">
-        <span class="stat-num">&lt;0.1%</span>
-        <span class="stat-label">Ban Rate</span>
-      </div>
-      <div class="stat-item reveal" style="transition-delay: .4s">
-        <span class="stat-num">24/7</span>
-        <span class="stat-label">Support</span>
-      </div>
-    </div>
-  </div>
-
   <!-- ── FEATURES ── -->
   <section class="section" id="features">
-    <span class="eyebrow reveal">Why Prophet</span>
-    <h2 class="section-heading reveal">Built to stay<br>invisible.</h2>
-    <p class="section-sub reveal">Every component is purpose-built for longevity. Not a script — a genuine piece of software infrastructure.</p>
+    <span class="eyebrow reveal">Overview</span>
+    <h2 class="section-heading reveal">What it is</h2>
+    <p class="section-sub reveal">Prophet runs outside the game process (typical &ldquo;external&rdquo; setup): driver/memory access to read game state and an on-screen menu. It is not a kernel driver and does not claim to be invisible to anti-cheat.</p>
 
     <div class="features-grid">
 
       <div class="feature-card reveal">
-        <div class="feature-icon-wrap">🛡</div>
-        <div class="feature-title">Kernel-level bypass</div>
-        <div class="feature-body">Prophet operates beneath the detection surface. Our driver-level integration intercepts scanner queries before they reach user space — making Prophet fundamentally invisible to all current anti-cheat implementations.</div>
-        <span class="feature-pip">↳ 18 months undetected</span>
+        <div class="feature-icon-wrap">◇</div>
+        <div class="feature-title">External architecture</div>
+        <div class="feature-body">Runs as its own program with memory access to Roblox—not injected code inside the game client. That model trades some capabilities for separation from the game&rsquo;s address space; it is still subject to detection like any third-party tool.</div>
+        <span class="feature-pip">↳ User-mode external</span>
       </div>
 
       <div class="feature-card reveal" style="transition-delay: .1s">
-        <div class="feature-icon-wrap">⚡</div>
-        <div class="feature-title">0.3ms injection speed</div>
-        <div class="feature-body">Proprietary memory injection pipeline achieves sub-millisecond execution with no frame drops and under 1% CPU overhead. Your game performance is completely untouched from the moment Prophet loads.</div>
-        <span class="feature-pip">↳ &lt;1% FPS impact</span>
+        <div class="feature-icon-wrap">◇</div>
+        <div class="feature-title">Modules</div>
+        <div class="feature-body">Toggles grouped by combat, visuals, and misc (aim assist, ESP, movement helpers, overlay, config, etc.). The count changes with updates—think on the order of dozens of features, not a fixed marketing number.</div>
+        <span class="feature-pip">↳ Combat / visuals / misc</span>
       </div>
 
       <div class="feature-card reveal" style="transition-delay: .2s">
-        <div class="feature-icon-wrap">🔄</div>
-        <div class="feature-title">Automatic updates</div>
-        <div class="feature-body">Our infrastructure monitors Roblox deployments in real time. Patches compile and push silently within minutes of any game update. No manual downloads, no downtime, no interruption — ever.</div>
-        <span class="feature-pip">↳ Avg. patch time: 8 min</span>
-      </div>
-
-      <div class="feature-card reveal" style="transition-delay: .05s">
-        <div class="feature-icon-wrap">🧠</div>
-        <div class="feature-title">AI behaviour masking</div>
-        <div class="feature-body">Prophet's adaptive AI engine mimics organic human input patterns — randomised timing, jitter profiles, and environmental heuristics that fool both server-side and client-side detection systems simultaneously.</div>
-        <span class="feature-pip">↳ Human-pattern simulation</span>
+        <div class="feature-icon-wrap">◇</div>
+        <div class="feature-title">Updates</div>
+        <div class="feature-body">When a new build is published, the version and download URL live in <code class="inline-code">update.json</code>. A loader can poll that file so clients don&rsquo;t rely on manual links every time.</div>
+        <span class="feature-pip">↳ Manifest-driven</span>
       </div>
 
       <div class="feature-card reveal" style="transition-delay: .15s">
-        <div class="feature-icon-wrap">🎛</div>
-        <div class="feature-title">100+ modules</div>
-        <div class="feature-body">From precision aim assist and full ESP to automated grinding, speed control, and anti-AFK — every module ships pre-configured and ready to use. Open Prophet, enable what you need, play.</div>
-        <span class="feature-pip">↳ Zero configuration needed</span>
-      </div>
-
-      <div class="feature-card reveal" style="transition-delay: .25s">
-        <div class="feature-icon-wrap">💬</div>
-        <div class="feature-title">Priority support</div>
-        <div class="feature-body">Dedicated Discord support staffed by real engineers. Average first response under 10 minutes. Every issue tracked to resolution — not handed off to a bot and left open for days.</div>
-        <span class="feature-pip">↳ &lt;10 min response time</span>
+        <div class="feature-icon-wrap">◇</div>
+        <div class="feature-title">Overlay &amp; config</div>
+        <div class="feature-body">In-game style menu for settings, plus saving and loading configs. Performance impact depends on your machine and what you enable.</div>
+        <span class="feature-pip">↳ Menu + profiles</span>
       </div>
 
     </div>
@@ -140,81 +93,25 @@
 
   <div class="section-divider"></div>
 
-  <!-- ── TESTIMONIALS ── -->
-  <div class="section-alt" id="reviews">
-    <div class="section-inner">
-      <span class="eyebrow reveal">Community</span>
-      <h2 class="section-heading reveal">12,000+ players<br>can't be wrong.</h2>
-      <p class="section-sub reveal">Real results from real users. No cherry-picked screenshots — just what people say unprompted in our Discord.</p>
-
-      <div class="testimonials-grid">
-
-        <div class="testimonial reveal">
-          <span class="testimonial-quote">"</span>
-          <p class="testimonial-text">Been running Prophet on my main for four months straight. Zero bans, zero flags. The auto-update means I never even think about maintenance.</p>
-          <span class="testimonial-author">— xNova_</span>
-        </div>
-
-        <div class="testimonial reveal" style="transition-delay: .1s">
-          <span class="testimonial-quote">"</span>
-          <p class="testimonial-text">Switched from two different competitors and the difference is night and day. The injection speed alone is immediately noticeable — it's technically in a different class.</p>
-          <span class="testimonial-author">— d3vr4n</span>
-        </div>
-
-        <div class="testimonial reveal" style="transition-delay: .2s">
-          <span class="testimonial-quote">"</span>
-          <p class="testimonial-text">The AI masking is what gets me. It genuinely moves like a human. 300+ hours on the same account. Not a single check, not a single flag.</p>
-          <span class="testimonial-author">— Kalvyn.exe</span>
-        </div>
-
-        <div class="testimonial reveal" style="transition-delay: .05s">
-          <span class="testimonial-quote">"</span>
-          <p class="testimonial-text">Setup was literally 2 minutes. Everything pre-configured, nothing to learn. I was expecting an hour of docs but it just worked immediately out of the box.</p>
-          <span class="testimonial-author">— r3tro_plays</span>
-        </div>
-
-        <div class="testimonial reveal" style="transition-delay: .15s">
-          <span class="testimonial-quote">"</span>
-          <p class="testimonial-text">Support responded in 6 minutes at 2am. Diagnosed my issue, had it patched same session. That level of service on a cheat client is genuinely unheard of.</p>
-          <span class="testimonial-author">— VoidScript</span>
-        </div>
-
-        <div class="testimonial reveal" style="transition-delay: .25s">
-          <span class="testimonial-quote">"</span>
-          <p class="testimonial-text">Paid for itself in the first five days with the farming automation. Nothing else even comes close on value. One-time purchase, permanent results.</p>
-          <span class="testimonial-author">— loopkid99</span>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="section-divider"></div>
-
-  <!-- ── PRICING ── -->
-  <section class="section" id="pricing">
-    <span class="eyebrow reveal">Pricing</span>
-    <h2 class="section-heading reveal">One price.<br>Full access.</h2>
-    <p class="section-sub reveal">No tiers. No subscriptions. No feature gating. Pay once and get everything Prophet has — forever, including all future updates.</p>
+  <!-- ── DOWNLOAD (free) ── -->
+  <section class="section" id="download">
+    <span class="eyebrow reveal">Download</span>
+    <h2 class="section-heading reveal">Free for<br>everyone.</h2>
+    <p class="section-sub reveal">No checkout. Grab the latest loader from the download page. Point your updater at the same JSON file you host here so all clients stay in sync.</p>
 
     <div class="pricing-wrap">
       <div class="plan-single reveal">
-        <span class="plan-tier">Lifetime Access</span>
-        <div class="plan-price"><sup>$</sup>49<span class="period"> one-time</span></div>
-        <p class="plan-tagline">Pay once. Every feature, every update, every module — yours permanently. No recurring charges, ever.</p>
+        <span class="plan-tier">Latest release</span>
+        <div class="plan-price plan-price--free">$0<span class="period"> free</span></div>
+        <p class="plan-tagline">Full build, automatic updates via the loader when you wire it to this site&rsquo;s <code class="inline-code">update.json</code>.</p>
         <ul class="plan-features">
-          <li>Full kernel-level bypass suite</li>
-          <li>100+ modules, pre-configured</li>
-          <li>AI behaviour masking engine</li>
-          <li>Lifetime automatic updates</li>
-          <li>Priority support channel</li>
-          <li>Unlimited accounts</li>
-          <li>Early access to new modules</li>
-          <li>Private Discord community</li>
+          <li>No payment on this site</li>
+          <li>Loader can read <code class="inline-code">update.json</code> for version + URL</li>
+          <li>Update the manifest on your host when you ship a new build</li>
+          <li>Optional <code class="inline-code">sha256</code> in the JSON</li>
         </ul>
-        <!-- STRIPE: Change href="#" to onclick="handleCheckout()" when ready -->
-        <a href="#" class="plan-cta" data-price-id="price_YOUR_ID_HERE">Get Prophet now</a>
-        <p class="plan-note">Secure checkout via Stripe &nbsp;·&nbsp; Instant delivery &nbsp;·&nbsp; 48hr refund window</p>
+        <a href="download.html" class="plan-cta">Go to download page</a>
+        <p class="plan-note">Host <code class="inline-code">update.json</code> beside these files &nbsp;·&nbsp; Point your loader at its public URL</p>
       </div>
     </div>
   </section>
@@ -231,11 +128,11 @@
 
         <div class="faq-item reveal">
           <button class="faq-toggle">
-            <span class="faq-q">Is Prophet actually undetected?</span>
+            <span class="faq-q">Will I get banned?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-body">
-            <p class="faq-a">Yes. Prophet operates at a kernel level that conventional Roblox anti-cheat cannot reach. We track ban rates across our entire user base in real time — currently under 0.1%. If our detection status ever changes, we pause service immediately and push a patch before resuming.</p>
+            <p class="faq-a">Maybe. Roblox&rsquo;s terms prohibit cheating; anti-cheat and reports exist. Nothing here is a guarantee of safety. Prophet is not kernel-mode and does not make you undetectable.</p>
           </div>
         </div>
 
@@ -245,47 +142,37 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-body">
-            <p class="faq-a">Completely automatically. Our infrastructure monitors Roblox deployments in real time and deploys patches within minutes of any game update. You never re-download or reconfigure anything — Prophet handles it silently in the background.</p>
+            <p class="faq-a">New builds are announced by changing <code class="inline-code">update.json</code> (version + <code class="inline-code">download_url</code>). If your loader checks that file, it can fetch updates when you publish them. Game updates can break tools until someone ships a fix.</p>
           </div>
         </div>
 
         <div class="faq-item reveal">
           <button class="faq-toggle">
-            <span class="faq-q">Is this really a one-time payment?</span>
+            <span class="faq-q">Why is it free?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-body">
-            <p class="faq-a">Yes, completely. You pay once and own Prophet permanently — including all future updates, new modules, and feature additions. There are no hidden recurring fees, no renewal prompts, and no surprise charges. Your licence never expires.</p>
+            <p class="faq-a">Distribution is handled from the download page and <code class="inline-code">update.json</code>. There is no purchase flow on this site.</p>
           </div>
         </div>
 
         <div class="faq-item reveal">
           <button class="faq-toggle">
-            <span class="faq-q">What happens if I get banned?</span>
+            <span class="faq-q">How does the loader auto-update?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-body">
-            <p class="faq-a">In the rare event a ban is directly caused by a fault in Prophet, we provide full support and account assistance. Our track record is a sub-0.1% ban rate across tens of thousands of sessions. We stand firmly behind our product.</p>
+            <p class="faq-a">Configure your loader to fetch the hosted <code class="inline-code">update.json</code> (see the download page for the exact URL). When you bump <code class="inline-code">version</code> and set <code class="inline-code">download_url</code>, clients that compare versions can pull the new build automatically.</p>
           </div>
         </div>
 
         <div class="faq-item reveal">
           <button class="faq-toggle">
-            <span class="faq-q">How do I get access after purchasing?</span>
+            <span class="faq-q">Where do I upload new builds?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-body">
-            <p class="faq-a">Instantly. After checkout you receive a licence key and download link via email. Join our Discord, open an onboarding ticket, and our team will have you fully set up in under five minutes.</p>
-          </div>
-        </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-toggle">
-            <span class="faq-q">Do you offer refunds?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
-            <p class="faq-a">We offer a 48-hour refund window if Prophet does not function on your system and our support team cannot resolve the issue. Refunds are processed through Stripe and typically appear within 3–5 business days.</p>
+            <p class="faq-a">Upload your binary or archive anywhere you control (CDN, GitHub Releases, etc.), then update <code class="inline-code">download_url</code> and optionally <code class="inline-code">sha256</code> in <code class="inline-code">update.json</code> on this site.</p>
           </div>
         </div>
 
@@ -295,25 +182,23 @@
 
   <!-- ── FINAL CTA ── -->
   <div class="cta-section">
-    <span class="eyebrow reveal" style="display: block; margin-bottom: 20px;">Ready?</span>
-    <h2 class="section-heading reveal" style="margin-bottom: 24px;">Stop playing at<br>a disadvantage.</h2>
+    <span class="eyebrow reveal" style="display: block; margin-bottom: 20px;">Download</span>
+    <h2 class="section-heading reveal" style="margin-bottom: 24px;">Latest build</h2>
     <p class="reveal" style="font-size: 16px; color: var(--text-dim); margin-bottom: 56px; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.75; font-weight: 400;">
-      Join 12,000+ players already running Prophet. Setup takes under five minutes. One payment, lifetime access.
+      Get the loader from the download page. Point your updater at <code class="inline-code">update.json</code> if you want automatic version checks.
     </p>
     <div class="hero-buttons reveal">
-      <a href="#pricing" class="btn-white">Get Prophet now</a>
-      <a href="#" class="btn-outline">Discord community</a>
+      <a href="download.html" class="btn-white">Download</a>
     </div>
   </div>
 
   <!-- ── FOOTER ── */
   <footer>
-    <a href="#" class="footer-logo">Prophet<span>.</span></a>
+    <a href="index.html" class="footer-logo">Prophet<span>.</span></a>
     <ul class="footer-links">
-      <li><a href="#">Discord</a></li>
+      <li><a href="download.html">Download</a></li>
       <li><a href="#">Terms</a></li>
       <li><a href="#">Privacy</a></li>
-      <li><a href="#">Support</a></li>
     </ul>
     <span class="footer-copy">© 2025 Prophet™ — Not affiliated with Roblox Corporation</span>
   </footer>
