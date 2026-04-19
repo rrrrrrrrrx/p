@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download — Prophet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+
+  <nav id="main-nav">
+    <a href="index.html" class="logo">Prophet<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="download.html">Download</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="index.html" class="nav-cta">Home</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero dl-hero">
+    <span class="eyebrow reveal" style="display:inline-flex; margin-bottom:24px;">Release</span>
+    <h1 class="hero-title" style="font-size:clamp(40px,6vw,72px); margin-bottom:16px;">
+      <span class="solid">Download</span>
+    </h1>
+    <p class="hero-sub" style="max-width:520px; margin-bottom:48px;">
+      Latest version is read from <code class="inline-code">update.json</code> in this folder. Your loader should use the same file for auto-updates.
+    </p>
+
+    <div class="dl-card reveal">
+      <span class="dl-meta">CURRENT VERSION</span>
+      <div class="dl-version" id="dl-version">—</div>
+      <p class="dl-status" id="dl-status">Loading release info…</p>
+
+      <div class="dl-actions">
+        <a id="dl-button" class="plan-cta" href="#" rel="noopener">Download</a>
+        <a href="update.json" class="btn-outline" style="padding:17px 24px;" target="_blank" rel="noopener">View update.json</a>
+      </div>
+
+      <p class="dl-json-hint" id="dl-notes" style="display:none;"></p>
+
+      <div class="dl-url-block">
+        <span class="dl-url-label">Manifest URL (for your loader)</span>
+        <code class="dl-url" id="dl-manifest-url"></code>
+        <p class="dl-json-hint">
+          Bump <code class="inline-code">version</code> and set <code class="inline-code">download_url</code> whenever you ship a build. Point the loader at the manifest URL above (must be served over <code class="inline-code">http(s)</code>, not <code class="inline-code">file://</code>).
+        </p>
+        <pre id="dl-schema">{
+  "version": "1.0.0",
+  "download_url": "https://your-cdn.example.com/ProphetLoader.exe",
+  "sha256": "",
+  "notes": "Optional changelog text"
+}</pre>
+      </div>
+    </div>
+  </div>
+
+  <footer style="margin-top:80px;">
+    <a href="index.html" class="footer-logo">Prophet<span>.</span></a>
+    <ul class="footer-links">
+      <li><a href="download.html">Download</a></li>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+    <span class="footer-copy">© 2025 Prophet™</span>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    (function () {
+      var elVer = document.getElementById('dl-version');
+      var elBtn = document.getElementById('dl-button');
+      var elStatus = document.getElementById('dl-status');
+      var elNotes = document.getElementById('dl-notes');
+      var elManifest = document.getElementById('dl-manifest-url');
+      var base = window.location.href.replace(/[^/]*$/, '');
+      elManifest.textContent = base + 'update.json';
+
+      fetch('update.json?t=' + Date.now(), { cache: 'no-store' })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(function (j) {
+          elVer.textContent = j.version || '—';
+          var url = (j.download_url || '').trim();
+          if (url) {
+            elBtn.setAttribute('href', url);
+            elStatus.textContent = 'Ready. SHA-256: ' + (j.sha256 || '(not set)') + '';
+          } else {
+            elBtn.setAttribute('href', '#');
+            elStatus.textContent = 'Set download_url in update.json to enable the download button.';
+            elBtn.addEventListener('click', function (e) {
+              if (!url) e.preventDefault();
+            });
+          }
+          if (j.notes) {
+            elNotes.style.display = 'block';
+            elNotes.textContent = j.notes;
+          }
+        })
+        .catch(function () {
+          elVer.textContent = '—';
+          elStatus.textContent = 'Could not load update.json. Serve this folder over http(s) (opening the HTML file directly from disk will block fetch).';
+          elBtn.setAttribute('href', '#');
+          elBtn.addEventListener('click', function (e) { e.preventDefault(); });
+        });
+    })();
+  </script>
+</body>
+</html>
